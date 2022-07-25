@@ -129,7 +129,7 @@ ARG uid=1001
 ARG user=indy
 ARG python_version=3.10.5
 ARG tag_name=von-image
-ARG tag_version=1.16.0
+ARG tag_version=1.16.1
 
 ENV HOME="/home/$user" \
     APP_ROOT="$HOME" \
