@@ -25,8 +25,8 @@ stages:
         containerRegistry: 'ACRConnection_DITI'
         repository: 'von-image'
         command: 'build'
-        Dockerfile: 'next/Dockerfile'
-        tags: 'next-2'
+        Dockerfile: 'next-1/Dockerfile'
+        tags: 'next-1'
         addBaseImageData: false
   
     - task: Docker@2
@@ -35,4 +35,4 @@ stages:
         containerRegistry: 'ACRConnection_DITI'
         repository: 'von-image'
         command: 'push'
-        tags: 'next-2'
+        tags: 'next-1'
