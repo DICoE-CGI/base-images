@@ -164,7 +164,7 @@ FROM debian:buster-slim
 ARG uid=1001
 ARG user=indy
 ARG tag_name=von-image
-ARG tag_version=next-2
+ARG tag_version=next-1
 
 ENV HOME="/home/$user" \
     APP_ROOT="$HOME" \
