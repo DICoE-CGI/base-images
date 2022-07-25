@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as builder
+FROM ubuntu:18.04 as builder
 
 ARG user=indy
 ENV HOME="/home/$user"
@@ -122,7 +122,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 
 ## Start fresh (new image) ##
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 
 ARG uid=1001
