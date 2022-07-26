@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as builder
+FROM ubuntu:20.04 as builder
 
 ARG user=indy
 ENV HOME="/home/$user"
@@ -46,7 +46,7 @@ RUN curl -o libsodium-${nacl_lib_ver}.tar.gz \
     rm -rf libsodium-${nacl_lib_ver}*
 
 # 3.5.3+ required
-ARG python_version=3.6.13
+ARG python_version=3.10.5
 
 # Install pyenv and python to user home directory
 ENV PYENV_ROOT="$HOME/.pyenv"
@@ -67,7 +67,7 @@ ARG indy_build_flags=--release
 
 ARG indy_sdk_url=https://codeload.github.com/hyperledger/indy-sdk/tar.gz/b4b330ef326958d593ab42e25679c2dcd655494c
 
-ARG rust_version=1.44.0
+ARG rust_version=1.62.1
 
 ENV LIBRARY_PATH="$HOME/.local/lib:$LIBRARY_PATH"
 
@@ -122,7 +122,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 
 ## Start fresh (new image) ##
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 
 ARG uid=1001
