@@ -170,7 +170,7 @@ RUN apt-get update -y && \
         bzip2 \
         curl \
         git \
-        libffi6 \
+        libffi7 \
         libgmp10 \
         liblzma5 \
         libncurses5 \
