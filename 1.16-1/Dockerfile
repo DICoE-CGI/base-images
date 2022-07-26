@@ -5,6 +5,11 @@ ENV HOME="/home/$user"
 WORKDIR $HOME
 RUN mkdir -p .local/bin .local/etc .local/lib
 
+
+ENV TZ=UTC
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+
 # Install environment
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
@@ -127,7 +132,7 @@ FROM ubuntu:20.04
 
 ARG uid=1001
 ARG user=indy
-ARG python_version=3.6.13
+ARG python_version=3.10.5
 ARG tag_name=von-image
 ARG tag_version=1.16.0
 
