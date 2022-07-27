@@ -16,6 +16,7 @@ steps:
       QualysApiPassword:  '$(imageScanPassword)'
       failByCvss: true
       vssScore: '7'
+      polling: 20
       timeoutInMinutes: '120'
       imageID: '$(containerRegistry)/$(imageRepository):$(imageTag)'
       dockerUrl: 'unix:///var/run/docker.sock'
