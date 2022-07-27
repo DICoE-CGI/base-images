@@ -17,6 +17,6 @@ steps:
       failByCvss: true
       vssScore: '7'
       polling: 20
-      timeoutInMinutes: '120'
+      timeout: '12000'
       imageID: '$(containerRegistry)/$(imageRepository):$(imageTag)'
       dockerUrl: 'unix:///var/run/docker.sock'
