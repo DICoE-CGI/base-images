@@ -47,9 +47,7 @@ stages:
         QualysApiPassword: '$(imageScanPassword)'
         imageID: '$(containerRegistry)/$(imageRepository):$(imageTag)'
         polling: '20'
-        timeout: '12000'
-        failBySeverity: true
-        severity: '5'
+        failByCvss: true
         dockerUrl: 'unix:///var/run/docker.sock'
 
 
