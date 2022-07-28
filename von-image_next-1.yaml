@@ -7,14 +7,6 @@ trigger: none
 resources:
 - repo: self
 
-variables:
-  - name: containerRegistry
-    value: 'ditiacr001.azurecr.io'
-  - name: imageRepository
-    value: 'von-image'
-  - name: imageTag
-    value: 'next-1'
-
 stages:
 - stage: Build
   displayName: Build image
