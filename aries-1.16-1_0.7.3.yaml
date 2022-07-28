@@ -22,7 +22,7 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      name: cgi-lab
+      vmImage: ubuntu-latest
     steps:
     - task: Docker@2
       displayName: 'Build an image'
