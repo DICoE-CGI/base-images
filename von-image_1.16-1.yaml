@@ -8,14 +8,6 @@ resources:
 - repo: self
 
 
-variables:
-  - name: containerRegistry
-    value: 'ditiacr001.azurecr.io'
-  - name: imageRepository
-    value: 'von-image'
-  - name: imageTag
-    value: 'py36-1.16-1'
-
 stages:
 - stage: Build
   displayName: Build image
