@@ -49,7 +49,7 @@ stages:
         polling: '20'
         timeout: '12000'
         failBySeverity: true
-        severity: '1'
+        severity: '5'
         dockerUrl: 'unix:///var/run/docker.sock'
 
 
