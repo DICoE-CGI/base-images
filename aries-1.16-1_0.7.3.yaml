@@ -27,7 +27,7 @@ stages:
     - task: Docker@2
       displayName: 'Build an image'
       inputs:
-        containerRegistry: 'ACRConnection_DITI'
+        containerRegistry: 'ACRConnection'
         repository: 'aries-cloudagent'
         command: 'build'
         Dockerfile: '1.16-1_0.7.3/Dockerfile'
@@ -56,7 +56,7 @@ stages:
     - task: Docker@2
       displayName: 'Push the Docker Image to ACR'
       inputs:
-        containerRegistry: 'ACRConnection_DITI'
+        containerRegistry: 'ACRConnection'
         repository: 'aries-cloudagent'
         command: 'push'
         tags: 'py36-1.16-1_0.7.3'
