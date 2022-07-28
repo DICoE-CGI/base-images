@@ -7,14 +7,6 @@ trigger: none
 resources:
 - repo: self
 
-variables:
-  - name: containerRegistry
-    value: 'ditiacr001.azurecr.io'
-  - name: imageRepository
-    value: 'aries-cloudagent'
-  - name: imageTag
-    value: 'py36-1.16-1_0.7.3'
-
 stages:
 - stage: Build
   displayName: Build image
