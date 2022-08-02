@@ -1,4 +1,4 @@
-ARG base_image="ditiacr001.azurecr.io/von-image:py36-1.16-1"
+ARG base_image="cgitest.azurecr.io/von-image:py36-1.16-1"
 
 FROM ${base_image}
 
