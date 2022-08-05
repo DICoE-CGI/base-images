@@ -46,6 +46,6 @@ stages:
       displayName: 'Push the Docker Image to ACR'
       inputs:
         containerRegistry: 'cgi-test-acr'
-        repository: 'aries-cloudagent'
+        repository: 'aries-acapy'
         command: 'push'
         tags: 'py36-1.16-1_0.7.3'
