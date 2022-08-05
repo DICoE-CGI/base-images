@@ -20,7 +20,7 @@ stages:
       displayName: 'Build an image'
       inputs:
         containerRegistry: 'cgi-test-acr'
-        repository: 'aries-cloudagent'
+        repository: 'aries-acapy'
         command: 'build'
         Dockerfile: '1.16-1_0.7.3/Dockerfile'
         tags: 'py36-1.16-1_0.7.3'
