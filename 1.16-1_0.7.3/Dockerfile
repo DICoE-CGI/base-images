@@ -23,6 +23,7 @@ LABEL summary="$SUMMARY" \
     maintainer=""
 
 USER root
+RUN pip install psycopg2-binary
 # Create default aca-py home (ACAPY_HOME) directory and set permissions.
 # This is used by indy-vdr
 RUN mkdir -p $HOME/.aries_cloudagent
