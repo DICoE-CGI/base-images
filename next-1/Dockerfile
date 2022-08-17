@@ -81,8 +81,14 @@ RUN cd indy-sdk*/experimental/plugins/postgres_storage && \
 WORKDIR $HOME
 RUN rm -rf indy-sdk
 
+# overridden by the build script
+# ENV version="07f03c4609ceed34bc163f83160c609562c34997"
+ARG cdr_version
+ENV VDR_VER=$vdr_version
+RUN echo $VDR_VER
 
-ARG indy_vdr_url=https://codeload.github.com/hyperledger/indy-vdr/tar.gz/07f03c4609ceed34bc163f83160c609562c34997
+ARG indy_vdr_url=https://codeload.github.com/hyperledger/indy-vdr/tar.gz/$VDR_VER
+RUN echo $indy_vdr_url
 
 # Download and extract indy-vdr
 RUN mkdir indy-vdr && \
@@ -131,9 +137,14 @@ RUN tar czvf indy_credx.tgz -C indy-shared-rs*/wrappers/python . && \
 WORKDIR $HOME
 RUN rm -rf indy-shared-rs
 
+# overridden by the build script
+# ENV version="ceb294006fc76c9e7976bd2005e0d6c740c21afe"
+ARG askar_version
+ENV ASKAR_VER=$askar_version
+RUN echo $ASKAR_VER
 
-ARG aries_askar_url=https://codeload.github.com/hyperledger/aries-askar/tar.gz/ceb294006fc76c9e7976bd2005e0d6c740c21afe
-
+ARG aries_askar_url=https://codeload.github.com/hyperledger/aries-askar/tar.gz/$ASKAR_VER
+RUN echo $aries_askar_url
 
 # Download and extract aries-askar
 RUN mkdir aries-askar && \
