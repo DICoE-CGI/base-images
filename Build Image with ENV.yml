@@ -25,4 +25,3 @@ stages:
         command: 'build'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
-        arguments: 'indy_sdk_url=https://codeload.github.com/hyperledger/indy-sdk/tar.gz/$version'
