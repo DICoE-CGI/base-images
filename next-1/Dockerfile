@@ -83,7 +83,7 @@ RUN rm -rf indy-sdk
 
 # overridden by the build script
 # ENV version="07f03c4609ceed34bc163f83160c609562c34997"
-ARG cdr_version
+ARG vdr_version
 ENV VDR_VER=$vdr_version
 RUN echo $VDR_VER
 
