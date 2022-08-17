@@ -23,6 +23,6 @@ stages:
       displayName: Build an image
       inputs:
         command: 'build'
-        Dockerfile: '**/Dockerfile'
+        Dockerfile: 'next-1/Dockerfile'
         tags: '$(tag)'
         arguments: '--build-arg sdk_version=$(version)'
