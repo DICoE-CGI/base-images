@@ -37,7 +37,8 @@ RUN apt-get update -y && \
 ARG indy_build_flags=--release
 
 # overridden by the build script
-ENV version="f85afd2f94959eb59522e5dda160d2c7fdd1a4ba"
+# ENV version="f85afd2f94959eb59522e5dda160d2c7fdd1a4ba"
+ENV version=""
 ARG indy_sdk_url=https://codeload.github.com/hyperledger/indy-sdk/tar.gz/$version
 
 # make local libs and binaries accessible
