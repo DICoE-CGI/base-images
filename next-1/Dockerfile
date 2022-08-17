@@ -42,7 +42,7 @@ ARG sdk_version
 ENV SDK_VER=$sdk_version
 RUN echo $SDK_VER
 ARG indy_sdk_url=https://codeload.github.com/hyperledger/indy-sdk/tar.gz/$SDK_VER
-
+RUN echo $indy_sdk_url
 # make local libs and binaries accessible
 ENV PATH="$HOME/.local/bin:$PATH"
 ENV LIBRARY_PATH="$HOME/.local/lib:$LIBRARY_PATH"
