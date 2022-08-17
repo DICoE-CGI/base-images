@@ -25,4 +25,4 @@ stages:
         command: 'build'
         Dockerfile: 'next-1/Dockerfile'
         tags: '$(tag)'
-        arguments: '--build-arg sdk_version=$(version)'
+        arguments: '--build-arg sdk_version=$(sdkversion) --build-arg vdr_version=$(vdrversion) --build-arg askar_version=$(askarversion)'
