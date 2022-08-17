@@ -38,8 +38,8 @@ ARG indy_build_flags=--release
 
 # overridden by the build script
 # ENV version="f85afd2f94959eb59522e5dda160d2c7fdd1a4ba"
-ENV version="$version"
-ARG indy_sdk_url=https://codeload.github.com/hyperledger/indy-sdk/tar.gz/$version
+ENV sdk_version="$sdk_ver"
+ARG indy_sdk_url=https://codeload.github.com/hyperledger/indy-sdk/tar.gz/$sdk_version
 
 # make local libs and binaries accessible
 ENV PATH="$HOME/.local/bin:$PATH"
