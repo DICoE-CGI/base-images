@@ -1,0 +1,52 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger: none
+
+resources:
+- repo: self
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: 'Build an image'
+      inputs:
+        containerRegistry: 'cgi-test-acr'
+        repository: 'von-image'
+        command: 'build'
+        Dockerfile: '1.16-1/Dockerfile'
+        tags: 'py36-1.16-1'
+        arguments: '--build-arg sdk_version=$(sdkversion)
+        addBaseImageData: false
+  
+    - script: |      
+        sudo docker pull qualys/qcs-sensor:latest
+        sudo docker run -d --restart on-failure -v /var/run/docker.sock:/var/run/docker.sock:ro -v /etc/qualys:/usr/local/qualys/qpa/data/conf/agent-data -v /usr/local/qualys/sensor/data:/usr/local/qualys/qpa/data -e ACTIVATIONID=d0c31b4c-5add-46cc-b130-b9c89e2e2f29 -e CUSTOMERID=8a3bfa4f-a0b6-7ebd-80f2-da8d4a3b0e03 -e POD_URL=https://cmsqagpublic.qg1.apps.qualys.ca/ContainerSensor --net=host --name qualys-container-sensor qualys/qcs-sensor:latest --cicd-deployed-sensor
+      displayName: 'Install Qualys Sensor'
+    - task: QualysCSConnector@4
+      displayName: Scan image
+      inputs:
+        QualysApiServer: 'https://qualysapi.qg1.apps.qualys.ca/'
+        QualysApiUsername: '$(imageScanUser)'
+        QualysApiPassword: '$(imageScanPassword)'
+        imageID: '$(containerRegistry)/$(imageRepository):$(imageTag)'
+        polling: '20'
+        failByCvss: true
+        dockerUrl: 'unix:///var/run/docker.sock'
+
+    - task: Docker@2
+      displayName: 'Push the Docker Image to ACR'
+      inputs:
+        containerRegistry: 'cgi-test-acr'
+        repository: 'von-image'
+        command: 'push'
+        tags: 'py36-1.16-1'
+        
