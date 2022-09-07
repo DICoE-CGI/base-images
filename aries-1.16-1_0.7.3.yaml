@@ -33,6 +33,7 @@ stages:
 
     - task: QualysCSConnector@4
       displayName: Scan image
+      enabled: false
       inputs:
         QualysApiServer: 'https://qualysapi.qg1.apps.qualys.ca/'
         QualysApiUsername: '$(imageScanUser)'
